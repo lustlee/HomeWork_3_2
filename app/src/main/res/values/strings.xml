@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">homework_two</string>
+    <string name="cl_title">The Colosseum</string>
+    <string name="cl_par">One of the most recognizable sites in the world</string>
+    <string name="etxt_hint">Введите цифру</string>
+</resources>
