@@ -74,8 +74,8 @@ public class MainActivity extends AppCompatActivity {
 //        super.onActivityResult(requestCode, resultCode, data);
 //        if (resultCode != RESULT_CANCELED){
 //            if (resultCode == 202) {
-//                String valueEditint = data.getStringExtra("key");
-//                textView.setText(valueEditint);
+//                String value = data.getStringExtra("key");
+//                textView.setText(value);
 //            }
 //        }
 //    }
