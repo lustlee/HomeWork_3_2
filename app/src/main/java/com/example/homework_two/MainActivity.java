@@ -1,5 +1,6 @@
 package com.example.homework_two;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.SearchManager;
@@ -52,22 +53,22 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        btn4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MainActivity3.class);
-                startActivity(intent);
-            }
+        btn4.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, MainActivity3.class);
+            startActivityForResult(intent, 202);
         });
 
-        Intent intentThatStartActivity3 = getIntent();
-
-        if (intentThatStartActivity3.hasExtra(Intent.EXTRA_TEXT)) {
-            String textEntered = intentThatStartActivity3.getStringExtra(Intent.EXTRA_TEXT);
-            textView.setText(textEntered);
-        }
-
-
-
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode != RESULT_CANCELED){
+            if (resultCode == 202) {
+                String valueEdit = data.getStringExtra("key");
+                textView.setText(valueEdit);
+            }
+        }
+    }
+
 }
