@@ -22,11 +22,24 @@ public class MainActivity3 extends AppCompatActivity {
         ed2 = findViewById(R.id.ed2);
         btn5 = findViewById(R.id.btn5);
 
-        btn5.setOnClickListener(v -> {
-            Intent intent = new Intent();
-            intent.putExtra("key", ed2.getText().toString());
-            setResult(RESULT_OK, intent);
-            finish();
+        btn5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Intent intent = new Intent();
+//                intent.putExtra("key", ed2.getText().toString());
+//                setResult(RESULT_OK, intent);
+//                finish();
+
+                String textEntered = ed2.getText().toString();
+
+                Context context = MainActivity3.this;
+                Class destinationActivity = MainActivity.class;
+
+                Intent activityMain = new Intent(context, destinationActivity);
+                activityMain.putExtra(Intent.EXTRA_TEXT, textEntered);
+                startActivity(activityMain);
+                finish();
+            }
         });
     }
 
